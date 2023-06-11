@@ -12,7 +12,10 @@ class TrendingBooks extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 50, horizontal: 16),
               child: Text(
                 'Trending Books',
-                style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 35,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromRGBO(254, 254, 254, 1)),
               ),
             ),
             SizedBox(
@@ -29,9 +32,6 @@ class TrendingBooks extends StatelessWidget {
                   childAspectRatio: 2.62 /
                       3, // Set the aspect ratio of the cards             ////  how much aspect ration?
                   children: <Widget>[
-                    promoCard('assets/images/maha1.png'),
-                    promoCard('assets/images/maha2.png'),
-                    promoCard('assets/images/maha3.png'),
                     GestureDetector(
                       onTap: () {
                         Navigator.push(
@@ -39,7 +39,7 @@ class TrendingBooks extends StatelessWidget {
                           MaterialPageRoute(builder: (context) => Book1()),
                         );
                       },
-                      child: promoCard('assets/images/rich.jpg'),
+                      child: promoCard('assets/images/a.png'),
                     ),
                   ],
                 ),
@@ -54,24 +54,48 @@ class TrendingBooks extends StatelessWidget {
 
 Widget promoCard(image) {
   return AspectRatio(
-    aspectRatio: 2.62 / 3,
-    child: Container(
-      margin: EdgeInsets.only(right: 15.0),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        image: DecorationImage(fit: BoxFit.cover, image: AssetImage(image)),
-      ),
+      aspectRatio: 2.62 / 3,
       child: Container(
-        decoration: BoxDecoration(
+          margin: EdgeInsets.only(left: 25.0),
+          decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            gradient: LinearGradient(begin: Alignment.bottomRight, stops: [
-              0.1,
-              0.9
-            ], colors: [
-              Colors.black.withOpacity(.8),
-              Colors.black.withOpacity(.1)
-            ])),
-      ),
-    ),
-  );
+            image: DecorationImage(fit: BoxFit.cover, image: AssetImage(image)),
+          ),
+          child: Stack(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  gradient: LinearGradient(
+                    begin: Alignment.bottomRight,
+                    stops: [0.1, 0.9],
+                    colors: [
+                      Colors.black.withOpacity(.8),
+                      Colors.black.withOpacity(.1),
+                    ],
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 0,
+                left: 0,
+                right: 0,
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.black.withOpacity(.5),
+                  ),
+                  child: Text(
+                    'Mahabharata',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          )));
 }
