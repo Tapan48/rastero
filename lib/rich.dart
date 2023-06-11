@@ -91,7 +91,39 @@ class _Book1State extends State<Book1> {
                           IconButton(
                             color: Color.fromRGBO(150, 150, 150, 1),
                             icon: Icon(Icons.favorite_border),
-                            onPressed: () {},
+                            onPressed: () async {
+                              final url = Uri.parse(
+                                  'https://service-dream-story.onrender.com/books/like');
+                              final response = await http.post(
+                                url,
+                                body: {
+                                  'id': _bookDataList[_selectedIndex]['_id']
+                                },
+                              );
+                              if (response.statusCode == 200) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Liked it!',
+                                      style: const TextStyle(
+                                          fontSize: 18, color: Colors.white),
+                                    ),
+                                    backgroundColor: Colors.green[500],
+                                  ),
+                                );
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    backgroundColor: Colors.red[400],
+                                    content: Text(
+                                      'Failed to like :)',
+                                      style: const TextStyle(
+                                          fontSize: 18, color: Colors.white),
+                                    ),
+                                  ),
+                                );
+                              }
+                            },
                           ),
                           if (_bookDataList.isNotEmpty &&
                               _bookDataList[_selectedIndex]
