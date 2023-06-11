@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
 import 'trending_books.dart';
 import 'bottom_nav_bar.dart';
 

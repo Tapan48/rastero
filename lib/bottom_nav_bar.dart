@@ -1,6 +1,6 @@
-import 'package:creative_read/rich.dart';
-import 'package:creative_read/home.dart';
-import 'package:creative_read/trending_books.dart';
+import 'package:dream_story/rich.dart';
+import 'package:dream_story/home.dart';
+import 'package:dream_story/trending_books.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavBarExample extends StatefulWidget {

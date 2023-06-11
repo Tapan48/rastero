@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.creative_read">
+    package="com.example.dream_story">
    <application
-        android:label="creative_read"
+        android:label="dream_story"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
