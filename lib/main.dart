@@ -8,11 +8,13 @@ void main() {
   // WidgetsFlutterBinding.ensureInitialized();
 
   runApp(MaterialApp(
+    title: "Dream story",
+    theme:
+        ThemeData(scaffoldBackgroundColor: const Color.fromRGBO(32, 32, 32, 1)),
     initialRoute: 'home',
     debugShowCheckedModeBanner: false,
     routes: {
-      'home': (context) => HomePage(),
-      'trending_books': (context) => TrendingBooks(),
+      'home': (context) => TrendingBooks(),
     },
     home: BottomNavBarExample(),
   ));
